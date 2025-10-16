@@ -33,20 +33,45 @@
 
 // ------------- CODE -------------
 #include <iostream>
-
+#include <string>
 using namespace std;
 
-// Function prototypes (if any)
-
-
-// Main function
-// https://en.cppreference.com/w/cpp/language/main_function.html
 int main(int argc, char* argv[]) {
-  cout << "Hello, World!" << endl;
-  return 0;
+
+string phrase1 = "";
+string phrase2 = "";
+
+cout << "Welcome to the Phrases Program. Ready....Go!" << endl << endl;
+
+cout << "Enter phrase one: ";
+getline(cin, phrase1);
+cout << "You entered: " << phrase1 << endl;
+
+cout << "Enter phrase two: ";
+getline(cin, phrase2);
+cout << "You entered: " << phrase2 << endl << endl;
+
+if (phrase1 == phrase2) {
+    cout << "Both phrases match." << endl;
+}
+else if (phrase2.find(phrase1) != string::npos) {
+    cout << phrase1 << " is found in " << phrase2 << endl;
+    phrase2 = phrase2.substr(phrase2.find(phrase1));
+    cout << phrase2 << endl;
+}
+else if (phrase1.find(phrase2) != string::npos) {
+    cout << phrase2 << " is found in " << phrase1 << endl;
+    phrase1 = phrase1.substr(phrase1.find(phrase2));
+    cout << phrase1 << endl;
+    }
+else {
+    cout << "No match." << endl;
 }
 
-// Function implementations (if any)
+cout << endl << "Thank you for using the Phrases program!" << endl;
+
+return 0;
+}
 
 
 // ------------- DESIGN -------------
