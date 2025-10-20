@@ -19,16 +19,16 @@
 
 
 // ------------- DESIGN DOCUMENT -------------
-// A. INPUT ✅: 
-// B. OUTPUT ✅:
-// C. CALCULATIONS ✅:
-// D. LOGIC and ALGORITHMS ✅:
+// A. INPUT ✅: yes
+// B. OUTPUT ✅: yes
+// C. CALCULATIONS ✅: yes
+// D. LOGIC and ALGORITHMS ✅: yes
 //    (Optional) flow chart link or file name: 
 
 
 // ------------- TESTING -------------
-// PASS ALL GIVEN SAMPLE RUN TESTS ✅: 
-// (Optional) Additional tests count:   
+// PASS ALL GIVEN SAMPLE RUN TESTS ✅: yes
+// (Optional) Additional tests count: 14
 
 
 // ------------- CODE -------------
@@ -86,14 +86,17 @@ string phrase1 = "";
 string phrase2 = "";
 
 B. OUTPUT
-string phrase 1
-string phrase 2
-substr
+phrase1 + phrase2
+DISPLAY result message
+substring
 
 C. CALCULATIONS
-Describe calculations used by algorithms in step D.  
-List all formulas. 
-If there are no calculations needed, state there are no calculations.
+No numeric calculations needed. Only string operations:
+phrase1 == phrase2
+phrase1.find(phrase2) // see if phrase 2 is in phrase 1
+phrase2.find(phrase1) // see if phrase 1 is in phrase 2
+phrase2.substr(position) // substring from pos
+phrase1.substr(position) // substring from pos
 
 D. LOGIC and ALGORITHMS
 
@@ -109,6 +112,20 @@ INPUT phrase2
 LABEL "You entered: "
 OUTPUT phrase2
 
+IF phrase1 == phrase2
+    DISPLAY "Both phrases match."
+ELSE IF phrase2.find(phrase1) != string::npos // phrase1 is in phrase2
+    DISPLAY phrase1 " is found in " phrase2
+    phrase2 = phrase2.substr(phrase2.find(phrase1))
+    DISPLAY phrase2
+ELSE IF phrase1.find(phrase2) != string::npos // phrase2 is in phrase1
+    DISPLAY phrase2 " is found in " phrase1
+    phrase1 = phrase1.substr(phrase1.find(phrase2));
+    DISPLAY phrase1
+ELSE
+    DISPLAY "No match."
+
+MESSAGE "Thank you for using the Phrases Program!"
 
 
 SAMPLE RUNS
